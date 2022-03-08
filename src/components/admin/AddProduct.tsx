@@ -11,6 +11,7 @@ import axios from 'axios';
 import { API } from '../../config';
 import { isAuth } from '../../helpers/auth';
 import { Jwt } from '../../store/models/auth';
+import 'antd/dist/antd.css';
 
 const AddProduct = () => {
     const dispatch = useDispatch()
@@ -80,13 +81,11 @@ const AddProduct = () => {
             <Form.Item name="category" label="所属分类">
                 <Select onChange={(value) => handleChange(value)}>
                     <Select.Option  value="请选择分类">请选择分类</Select.Option>
-                    <Select.Option  value="请选择分类1">请选择分类1</Select.Option>
-                    <Select.Option  value="请选择分类2">请选择分类2</Select.Option>
-                    {/* {category.category.result.map(item => (
+                    {category.category.result.map(item => (
                         <Select.Option key={item._id} value={item._id}>
                             {item.name}
                         </Select.Option>
-                    ))} */}
+                    ))}
                 </Select>
             </Form.Item>
             <Form.Item name="quantity" label="商品数量">

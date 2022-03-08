@@ -28,7 +28,7 @@ const Navigation = () => {
           } = isAuth() as Jwt
 
           if(role === 1) {
-              url = "/admin.dashboard"
+              url = "/admin/dashboard"
           }
       }
       return url

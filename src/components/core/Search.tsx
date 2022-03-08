@@ -15,15 +15,20 @@ const Search = () => {
             <Form.Item name="search">
                 <Input placeholder="请输入搜索关键字" />
             </Form.Item>
-            {/* <Form.Item>
+            <Form.Item>
                 <Button>搜索</Button>
-            </Form.Item> */}
+            </Form.Item>
         </Input.Group>
     </Form>
     <Divider />
     <Row gutter={[16, 16]}>
+        {/* {search.map(item => (
+            <Col span="6">
+                <ProductItem product={item} />
+            </Col>
+        ))} */}
         <Col span="6">
-            <ProductItem />
+            {/* <ProductItem /> */}
         </Col>
     </Row>
   </>
