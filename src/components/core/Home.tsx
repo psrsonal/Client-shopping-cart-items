@@ -18,16 +18,15 @@ const Home = () => {
   )
 
   useEffect(() => {
-    dispatch(getProduct('createAt'))
+    dispatch(getProduct('createdAt'))
     dispatch(getProduct('sold'))
   }, [])
 
   return <Layout title="学习商城" subTitle="一起快乐学习">
-    {/* <Search /> */}
+    <Search />
     <Title level={5}>最新上架</Title>
     <Row gutter={[16, 16]}>
-      {
-        createdAt.products.map(item => (
+      {createdAt.products.map(item => (
           <Col key={item._id} span="6">
             <ProductItem product={item} />
           </Col>

@@ -1,6 +1,8 @@
-import { Button, Card, Col, Row, Typography } from 'antd'
+import { Button, Card, Col, Row, Typography, Image } from 'antd'
+import moment from 'moment'
 import React, { FC } from 'react'
 import { Link } from 'react-router-dom'
+import { API } from '../../config'
 import { Product } from '../../store/models/product'
 
 const { Title, Paragraph } = Typography
@@ -13,9 +15,9 @@ const ProductItem:FC<Props> = ({ product }) => {
   return (
     <Card
         cover={
-            <img 
-                alt="example" 
-                src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png" 
+            <Image 
+                src={`${API}/product/photo/${product._id}`} 
+                alt={product.name}
             />
         }
         actions={[
@@ -36,7 +38,7 @@ const ProductItem:FC<Props> = ({ product }) => {
             </Col>
         </Row>
         <Row>
-            <Col span="12">上架时间: {product.createdAt}</Col>
+            <Col span="12">上架时间: {moment(product.createdAt).format("YYYY-MM-DD")}</Col>
             <Col span="12" style={{ textAlign: "right" }}>
                 所属分类: {product.category.name}
             </Col>

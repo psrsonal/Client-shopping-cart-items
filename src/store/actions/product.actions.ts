@@ -21,7 +21,7 @@ export interface GetProductSuccessAction {
 export const getProduct = (
     sortBy: string,
     order: string = "desc",
-    limit: number = 5
+    limit: number = 10
 ): GetProductAction => ({
     type: GET_PRODUCT,
     sortBy,
@@ -38,4 +38,39 @@ export const getProductSuccess = (
     sortBy
 })
 
-export type ProductUnionType = GetProductAction | GetProductSuccessAction
+/**
+ * 搜索商品
+ */
+
+export const SEARCH_PRODUCT = "SEARCH_PRODUCT"
+export const SEARCH_PRODUCT_SUCCESS = "SEARCH_PRODUCT_SUCCESS"
+
+export interface SearchProductAction {
+    type: typeof SEARCH_PRODUCT,
+    payload: {
+        category: string,
+        search: string
+    }
+}
+
+export interface SearchProductSuccessAction {
+    type: typeof SEARCH_PRODUCT_SUCCESS
+    products: Product[]
+}
+
+export const searchProduct = (payload:{
+    category: string
+    search: string
+}): SearchProductAction => ({
+    type: SEARCH_PRODUCT,
+    payload
+})
+
+export const SearchProductSuccess = (
+    products: Product[]
+): SearchProductSuccessAction => ({
+    type: SEARCH_PRODUCT_SUCCESS,
+    products
+})
+
+export type ProductUnionType = GetProductAction | GetProductSuccessAction | SearchProductAction | SearchProductSuccessAction
